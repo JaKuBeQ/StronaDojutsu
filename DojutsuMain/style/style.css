@@ -1,0 +1,81 @@
+.main{
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+display: flex;
+justify-content: center;
+}
+
+body, html{
+  background: rgb(255,255,255);
+background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(223,233,243,1) 100%);;
+  }
+
+.links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 400px; 
+    width: 300px;
+    float: left;
+    margin-top: 155px;
+  }
+  
+  button {
+    text-decoration: none;
+    margin: 20px 0;
+    background-color: black;
+    color: white;
+    font-size: 35px;
+    font-family: 'Unbounded';
+    border-radius: 25px;
+    text-align: center;
+    
+    box-shadow: 1px 1px 35px 3px rgba(0,0,0,0.81);
+-webkit-box-shadow: 1px 1px 35px 3px rgba(0,0,0,0.81);
+-moz-box-shadow: 1px 1px 35px 3px rgba(0,0,0,0.81);
+
+  }
+button:hover{
+    /*background: #FCAE1E;*/
+    border: 0px;
+    background-color: grey;
+    transform: scale(0.95);
+    text-decoration: none;
+}
+
+h3{
+  text-align: center;
+  color: black;
+  font-family: 'Unbounded', cursive;
+  font-size:x-large;
+  position: absolute;
+  top: 135px;
+  left: 900px;
+  
+}
+@media screen and (max-width: 900px){
+ .mob {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+ }
+}
+.article{
+  
+  color: black;
+  font-family: 'Unbounded', cursive;
+  font-size:  large;
+
+  border: 12px solid black;
+  border-radius: 15px;
+  height: 800px;
+  width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  top: 185px;
+  left: 500px;
+  float: right;
+}
