@@ -35,14 +35,16 @@ body,html {
     color: black;
   }
 
-  .topnav > .login:hover {
-    background-color: #ddd;
-    color: black;
+  .login{
+    position: fixed;
+    right: 0;
   }
 
-  .topnav > .login {
-    text-align: right;
-   float: right;
-   
+  .login:hover{
+    background: none;
+  }
+
+  .topnav > a > img{
+    width: 45px;
   }
   

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../img/Uzu.png" type="image/x-icon">
+    <link rel="stylesheet" href="../style/login.css">
+    <title>Dojutsu</title>
+    <script type="text/javascript" src="../scripts/script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <form class="form">
+        <p class="heading">Login</p>
+        <input class="input" id="name" placeholder="Username" type="text">
+        <input class="input" id="pass" placeholder="Password" type="password"> 
+        <input type="button" class="login btn" value="Login" onclick="login()">
+    </form>
+    <script>
+        const login = ()=>{
+            const username = document.querySelector('#name');
+            const password = document.querySelector('#pass');
+
+            fetch('http://localhost:3000/StronaDojutsu/API/server.php',{
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                body: new URLSearchParams({
+                    email: username.value,
+                    pass: password.value
+                })
+            }).then((res)=>{
+                return res.json();
+            }).then((res)=>{
+                if(res.success === true) {
+                    sessionStorage.setItem('login', true);
+                    window.location.href = "./admin.html"
+                }else{
+                    alert("Login failed");
+                }
+            })
+        }
+        
+    </script>
+</body>
+</html>
