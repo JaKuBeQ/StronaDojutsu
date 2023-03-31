@@ -22,18 +22,45 @@
         <button value="5" class="redirect" href="#Rinne">Rinne Sharingan</button>
         <button value="6" class="redirect" href="#Ketsuryugan">Ketsuryūgan</button>
         <button value="7" class="redirect" href="#Tenseigan">Tenseigan</button>
-        <a class="login" href="./pages/login.html"><img src="https://cdn-icons-png.flaticon.com/512/6711/6711581.png" alt="login button"></a>
+      </div>
+
+      <div class="topnav_mobile">
+        <img class="menu" src="https://cdn-icons-png.flaticon.com/512/10253/10253453.png" alt="menu">
+        <button value="1" class="redirect" href="#Byakugan">Byakugan</button>
+        <button value="2" class="redirect" href="#Jogan">Jogan</button>
+        <button value="3" class="redirect" href="#Sharingan">Sharingan</button>
+        <button value="4" class="redirect" href="#Rinnegan">Rinnegan</button>
+        <button value="5" class="redirect" href="#Rinne">Rinne Sharingan</button>
+        <button value="6" class="redirect" href="#Ketsuryugan">Ketsuryūgan</button>
+        <button value="7" class="redirect" href="#Tenseigan">Tenseigan</button>
       </div>
 
       <div class="content">
-        <div class="text"></div>
-        <img src="">
+      </div>
+
+      <div class="footer">
+        <a class="login" href="./pages/login.html"><img src="https://cdn-icons-png.flaticon.com/512/6711/6711581.png" alt="login button"></a>
       </div>
 
 
 
       <script>
         const buttons = document.querySelectorAll('.redirect');
+        const menu = document.querySelector(".menu");
+        let state = false;
+
+        menu.addEventListener('click',()=>{
+            if(state === false){
+            document.querySelector(".topnav_mobile").classList.add('slidedown');
+            document.querySelector(".topnav_mobile").classList.remove('slideup');
+            state = true;
+            }else{
+                document.querySelector(".topnav_mobile").classList.remove('slidedown');
+                document.querySelector(".topnav_mobile").classList.add('slideup');
+                state = false;
+            }
+            console.log(state)
+        })
 
         buttons.forEach(val => {
             val.addEventListener('click',()=>{
@@ -42,8 +69,16 @@
         }).then((res)=>{
             return res.json();
         }).then(res=>{
-            document.querySelector('.text').textContent = res.description_text;
-            document.querySelector('.content > img').src = './media/'+res.image;
+            const display = ()=>{
+
+                return `
+        <div>
+        ${res.description_text}
+        </div>
+    `;
+            }
+
+            document.querySelector('.content').innerHTML = display();
         })
             })
         })
